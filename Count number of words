@@ -1,0 +1,40 @@
+class Solution 
+{ 
+    int countWords(String s) 
+    { 
+        // code here    
+        int count = 0;
+
+    int i = 0;
+
+    while(!(s.charAt(i)-'a' >= 0 && s.charAt(i)-'a'<26))i++;
+
+    for(;i<s.length();i++){
+
+        if(s.charAt(i)-'a' >= 0 && s.charAt(i)-'a'<26){
+
+            count++;
+
+            while(i<s.length() && (s.charAt(i)-'a' >= 0 && s.charAt(i)-'a'<26))i++;
+
+            i--;
+
+        }
+
+        else if(s.charAt(i)=='\\'){
+
+            i++;
+
+        }
+
+        else{
+
+           continue;
+
+        }
+
+    }
+
+    return count;
+    }
+} 
